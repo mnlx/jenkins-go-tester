@@ -16,8 +16,12 @@ func check(e error) {
 func main() {
 
 	r1, err := ioutil.ReadFile("/log/jenkins-log-duarte2")
-	check(err)
-	fmt.Println(string(r1))
+
+	if err != nil {
+		fmt.Println("File not created yet")
+	} else {
+		fmt.Println(string(r1))
+	}
 
 	l1 := []byte("hello\ngo\n")
 	err1 := ioutil.WriteFile("/log/jenkins-log-duarte", l1, 0644)
