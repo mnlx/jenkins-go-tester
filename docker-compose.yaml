@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  jenkins-log:
+    image: mnlx/firstgo:v1
+    volumes:
+      - "jenkins-log:/log:rw"
+
+volumes:
+  jenkins-log:

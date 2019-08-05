@@ -1,10 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Test') {
+        stage('Build') {
+            sh '''
+                chmod +x build.sh
+                ./build.sh
+            '''
+        }
+
+        stage('Run') {
             steps {
-                sh 'go version'
-                sh 'docker version'
+                sh '''
+                docker-compose up
+                '''
             }
         }
     }
